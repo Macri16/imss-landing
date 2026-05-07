@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IMSS Empresarial — Regulariza a tu equipo hoy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&display=swap" rel="stylesheet">
+
+<style>
+/* ─── RESET & BASE ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --verde: #0B6E4F;
+  --verde-claro: #12A072;
+  --verde-neon: #00E5A0;
+  --crema: #F5F0E8;
+  --cafe: #2C1810;
+  --cafe-medio: #5C3D2E;
+  --gris-suave: #F0EDE8;
+  --blanco: #FFFFFF;
+  --rojo-alerta: #C0392B;
+  --amarillo: #F4B942;
+  --sombra: 0 4px 32px rgba(11,110,79,0.12);
+  --radio: 16px;
+  --radio-lg: 24px;
+  --fuente-display: 'Bebas Neue', sans-serif;
+  --fuente-body: 'DM Sans', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--fuente-body);
+  background: var(--crema);
+  color: var(--cafe);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ─── NAV ─── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(245,240,232,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(11,110,79,0.1);
+  padding: 0 24px;
+  height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  font-family: var(--fuente-display);
+  font-size: 26px;
+  letter-spacing: 1px;
+  color: var(--verde);
+  text-decoration: none;
+}
+.nav-logo span { color: var(--verde-claro); }
+.nav-cta {
+  background: var(--verde);
+  color: var(--blanco);
+  border: none;
+  border-radius: 50px;
+  padding: 10px 24px;
+  font-family: var(--fuente-body);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background .2s, transform .1s;
+  display: inline-block;
+}
+.nav-cta:hover { background: var(--verde-claro); transform: translateY(-1px); }
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 100vh;
+  padding: 100px 24px 60px;
+  display: flex; align-items: center;
+  position: relative;
+  overflow: hidden;
+  background: var(--verde);
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 80% 50%, rgba(0,229,160,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 60% at 10% 80%, rgba(18,160,114,0.2) 0%, transparent 50%);
+}
+.hero-grid {
+  max-width: 1100px; margin: 0 auto; width: 100%;
+  display: grid; grid-template-columns: 1fr 420px; gap: 60px; align-items: center;
+  position: relative; z-index: 1;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(0,229,160,0.15);
+  border: 1px solid rgba(0,229,160,0.3);
+  border-radius: 50px;
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--verde-neon);
+  margin-bottom: 24px;
+  letter-spacing: .5px;
+}
+.dot-pulse {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--verde-neon);
+  animation: pulse 1.8s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%,100%{opacity:1;transform:scale(1)}
+  50%{opacity:.5;transform:scale(.8)}
+}
+.hero h1 {
+  font-family: var(--fuente-display);
+  font-size: clamp(52px, 7vw, 88px);
+  line-height: 0.95;
+  color: var(--blanco);
+  letter-spacing: 1px;
+  margin-bottom: 28px;
+}
+.hero h1 span { color: var(--verde-neon); }
+.hero-sub {
+  font-size: 18px; font-weight: 300;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 40px;
+  max-width: 500px;
+  line-height: 1.6;
+}
+.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 48px; }
+.btn-primary {
+  background: var(--verde-neon);
+  color: var(--cafe);
+  border: none;
+  border-radius: 50px;
+  padding: 16px 36px;
+  font-family: var(--fuente-body);
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: all .2s;
+  letter-spacing: .3px;
+}
+.btn-primary:hover { background: #00ffb3; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,229,160,0.4); }
+.btn-outline {
+  background: transparent;
+  color: var(--blanco);
+  border: 1.5px solid rgba(255,255,255,0.3);
+  border-radius: 50px;
+  padding: 16px 36px;
+  font-family: var(--fuente-body);
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: all .2s;
+}
+.btn-outline:hover { border-color: var(--verde-neon); color: var(--verde-neon); }
+
+.hero-trust {
+  display: flex; gap: 32px; align-items: center;
+  flex-wrap: wrap;
+}
+.trust-item {
+  display: flex; align-items: center; gap: 8px;
+  color: rgba(255,255,255,0.7);
+  font-size: 14px;
+}
+.trust-icon {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: rgba(0,229,160,0.15);
+  border: 1px solid rgba(0,229,160,0.3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px;
+}
+
+/* ─── CALCULADORA ─── */
+.calc-card {
+  background: var(--blanco);
+  border-radius: var(--radio-lg);
+  padding: 36px 32px;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.25);
+  position: sticky; top: 80px;
+}
+.calc-title {
+  font-family: var(--fuente-display);
+  font-size: 28px;
+  color: var(--verde);
+  margin-bottom: 6px;
+  letter-spacing: .5px;
+}
+.calc-subtitle {
+  font-size: 13px; color: #888; margin-bottom: 24px;
+}
+.calc-field { margin-bottom: 20px; }
+.calc-label {
+  font-size: 13px; font-weight: 500; color: var(--cafe-medio);
+  display: block; margin-bottom: 8px;
+}
+.calc-input {
+  width: 100%;
+  border: 1.5px solid #E0DBD4;
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-family: var(--fuente-body);
+  font-size: 16px;
+  color: var(--cafe);
+  background: var(--gris-suave);
+  transition: border-color .2s;
+  outline: none;
+  -webkit-appearance: none;
+}
+.calc-input:focus { border-color: var(--verde-claro); background: #fff; }
+
+.salario-display {
+  text-align: center;
+  font-family: var(--fuente-display);
+  font-size: 32px;
+  color: var(--cafe);
+  letter-spacing: 1px;
+  margin: 4px 0 8px;
+}
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%; height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(to right, var(--verde-claro) 0%, var(--verde-claro) var(--pct,50%), #E0DBD4 var(--pct,50%), #E0DBD4 100%);
+  outline: none;
+  cursor: pointer;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: var(--verde);
+  border: 3px solid #fff;
+  box-shadow: 0 2px 8px rgba(11,110,79,0.3);
+  cursor: pointer;
+}
+.result-box {
+  background: linear-gradient(135deg, var(--verde) 0%, var(--verde-claro) 100%);
+  border-radius: 12px;
+  padding: 20px 20px 16px;
+  margin-top: 20px;
+  color: var(--blanco);
+}
+.result-label { font-size: 12px; opacity: .8; margin-bottom: 4px; letter-spacing: .5px; text-transform: uppercase; }
+.result-number {
+  font-family: var(--fuente-display);
+  font-size: 44px;
+  letter-spacing: 1px;
+  line-height: 1;
+  color: var(--verde-neon);
+}
+.result-periodo { font-size: 13px; opacity: .7; margin-top: 2px; }
+.result-desc { font-size: 13px; opacity: .85; margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.15); line-height: 1.5; }
+.calc-cta {
+  width: 100%; margin-top: 20px;
+  background: var(--verde-neon);
+  color: var(--cafe);
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  font-family: var(--fuente-body);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all .2s;
+  letter-spacing: .3px;
+}
+.calc-cta:hover { background: #00ffb3; transform: translateY(-1px); }
+
+/* ─── SECCIÓN ALERTA ─── */
+.alerta-section {
+  background: var(--cafe);
+  padding: 80px 24px;
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+.alerta-section::before {
+  content: '⚠';
+  position: absolute; top: -30px; left: 50%; transform: translateX(-50%);
+  font-size: 200px; opacity: .03; pointer-events: none;
+  line-height: 1;
+}
+.alerta-eyebrow {
+  display: inline-block;
+  background: rgba(192,57,43,0.2);
+  border: 1px solid rgba(192,57,43,0.4);
+  color: #E74C3C;
+  border-radius: 50px;
+  padding: 5px 16px;
+  font-size: 12px; font-weight: 600;
+  letter-spacing: 1px; text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.alerta-section h2 {
+  font-family: var(--fuente-display);
+  font-size: clamp(38px,5vw,64px);
+  color: var(--blanco);
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  line-height: 0.95;
+}
+.alerta-section h2 em { color: #E74C3C; font-style: normal; }
+.alerta-sub { color: rgba(255,255,255,.65); font-size: 17px; max-width: 560px; margin: 0 auto 48px; }
+.multas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px; max-width: 900px; margin: 0 auto;
+}
+.multa-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radio);
+  padding: 28px 20px;
+  text-align: center;
+}
+.multa-monto {
+  font-family: var(--fuente-display);
+  font-size: 42px;
+  color: #E74C3C;
+  letter-spacing: 1px;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.multa-desc { color: rgba(255,255,255,.6); font-size: 13px; line-height: 1.5; }
+
+/* ─── CÓMO FUNCIONA ─── */
+.proceso-section { padding: 100px 24px; background: var(--crema); }
+.section-header { text-align: center; margin-bottom: 64px; }
+.section-tag {
+  display: inline-block;
+  background: rgba(11,110,79,0.1);
+  color: var(--verde);
+  border-radius: 50px;
+  padding: 5px 16px;
+  font-size: 13px; font-weight: 500;
+  letter-spacing: .5px; text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.section-header h2 {
+  font-family: var(--fuente-display);
+  font-size: clamp(36px,5vw,60px);
+  color: var(--cafe);
+  letter-spacing: 1px;
+  line-height: 1;
+}
+.section-header h2 span { color: var(--verde); }
+.pasos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px; max-width: 1000px; margin: 0 auto;
+}
+.paso-card {
+  background: var(--blanco);
+  border-radius: var(--radio-lg);
+  padding: 36px 28px;
+  border: 1px solid rgba(11,110,79,0.08);
+  position: relative;
+  transition: transform .2s, box-shadow .2s;
+}
+.paso-card:hover { transform: translateY(-4px); box-shadow: var(--sombra); }
+.paso-num {
+  font-family: var(--fuente-display);
+  font-size: 64px;
+  color: rgba(11,110,79,0.08);
+  line-height: 1;
+  position: absolute; top: 16px; right: 20px;
+  letter-spacing: 1px;
+}
+.paso-icon {
+  width: 48px; height: 48px;
+  background: var(--verde);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.paso-card h3 {
+  font-size: 18px; font-weight: 600;
+  color: var(--cafe);
+  margin-bottom: 10px;
+}
+.paso-card p { font-size: 14px; color: #888; line-height: 1.6; }
+.tiempo-badge {
+  display: inline-block;
+  background: rgba(11,110,79,0.1);
+  color: var(--verde);
+  border-radius: 50px;
+  padding: 3px 12px;
+  font-size: 12px; font-weight: 500;
+  margin-top: 16px;
+}
+
+/* ─── PLANES ─── */
+.planes-section { padding: 100px 24px; background: var(--gris-suave); }
+.planes-tabs {
+  display: flex; gap: 8px; justify-content: center;
+  margin-bottom: 40px; flex-wrap: wrap;
+}
+.plan-tab {
+  padding: 10px 24px;
+  border-radius: 50px;
+  border: 1.5px solid rgba(11,110,79,0.2);
+  background: transparent;
+  color: var(--cafe-medio);
+  font-family: var(--fuente-body);
+  font-size: 14px; font-weight: 500;
+  cursor: pointer;
+  transition: all .2s;
+}
+.plan-tab.active {
+  background: var(--verde);
+  color: var(--blanco);
+  border-color: var(--verde);
+}
+.plan-content { display: none; }
+.plan-content.active { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
+.plan-card {
+  background: var(--blanco);
+  border-radius: var(--radio-lg);
+  padding: 36px 28px;
+  border: 2px solid transparent;
+  transition: all .2s;
+  position: relative;
+}
+.plan-card:hover { transform: translateY(-4px); box-shadow: var(--sombra); }
+.plan-card.destacado {
+  border-color: var(--verde);
+}
+.plan-badge-top {
+  position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+  background: var(--verde-neon);
+  color: var(--cafe);
+  border-radius: 50px;
+  padding: 4px 16px;
+  font-size: 12px; font-weight: 700;
+  white-space: nowrap;
+}
+.plan-nombre {
+  font-family: var(--fuente-display);
+  font-size: 28px; letter-spacing: .5px;
+  color: var(--cafe);
+  margin-bottom: 4px;
+}
+.plan-personas { font-size: 13px; color: #999; margin-bottom: 20px; }
+.plan-precio {
+  font-family: var(--fuente-display);
+  font-size: 52px;
+  color: var(--verde);
+  letter-spacing: 1px;
+  line-height: 1;
+}
+.plan-per { font-size: 14px; color: #999; margin-bottom: 24px; }
+.plan-divider { border: none; border-top: 1px solid #F0EDE8; margin-bottom: 20px; }
+.plan-feat { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; font-size: 14px; color: var(--cafe-medio); }
+.check { color: var(--verde); font-weight: 700; margin-top: 1px; flex-shrink: 0; }
+.plan-cta-btn {
+  width: 100%; margin-top: 24px;
+  padding: 14px;
+  border-radius: 10px;
+  border: 2px solid var(--verde);
+  background: transparent;
+  color: var(--verde);
+  font-family: var(--fuente-body);
+  font-size: 15px; font-weight: 600;
+  cursor: pointer;
+  transition: all .2s;
+}
+.plan-card.destacado .plan-cta-btn {
+  background: var(--verde);
+  color: var(--blanco);
+}
+.plan-cta-btn:hover { background: var(--verde); color: var(--blanco); }
+
+/* ─── PLAN PERSONAL ─── */
+.personal-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap: 20px; max-width: 820px; margin: 0 auto; }
+.personal-card {
+  background: var(--blanco);
+  border-radius: var(--radio-lg);
+  padding: 32px 24px;
+  border: 2px solid transparent;
+  text-align: center;
+  transition: all .2s;
+}
+.personal-card:hover { transform: translateY(-4px); box-shadow: var(--sombra); }
+.personal-card.destacado { border-color: var(--verde); }
+.personal-icon { font-size: 36px; margin-bottom: 12px; }
+.personal-nombre {
+  font-family: var(--fuente-display);
+  font-size: 30px; letter-spacing: .5px;
+  color: var(--cafe); margin-bottom: 4px;
+}
+.personal-precio {
+  font-family: var(--fuente-display);
+  font-size: 48px;
+  color: var(--verde); line-height: 1;
+}
+.personal-per { font-size: 13px; color: #999; margin-bottom: 20px; }
+.personal-feat { text-align: left; }
+.plan-nota { text-align: center; color: #999; font-size: 13px; margin-top: 24px; }
+
+/* ─── BENEFICIOS ─── */
+.beneficios-section { padding: 100px 24px; background: var(--verde); }
+.beneficios-section .section-header h2 { color: var(--blanco); }
+.beneficios-section .section-tag { background: rgba(0,229,160,0.15); color: var(--verde-neon); border: 1px solid rgba(0,229,160,0.3); }
+.beneficios-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 16px; max-width: 1000px; margin: 0 auto; }
+.bene-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radio);
+  padding: 24px 20px;
+  transition: background .2s;
+}
+.bene-card:hover { background: rgba(255,255,255,0.1); }
+.bene-icon { font-size: 28px; margin-bottom: 12px; }
+.bene-titulo { font-size: 15px; font-weight: 600; color: var(--blanco); margin-bottom: 6px; }
+.bene-monto { font-family: var(--fuente-display); font-size: 22px; color: var(--verde-neon); letter-spacing: .5px; margin-bottom: 4px; }
+.bene-desc { font-size: 13px; color: rgba(255,255,255,.55); line-height: 1.5; }
+
+/* ─── TESTIMONIOS ─── */
+.testimonios-section { padding: 100px 24px; background: var(--crema); }
+.testi-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
+.testi-card {
+  background: var(--blanco);
+  border-radius: var(--radio-lg);
+  padding: 32px 28px;
+  border: 1px solid rgba(11,110,79,0.08);
+}
+.estrellas { color: var(--amarillo); font-size: 16px; margin-bottom: 16px; letter-spacing: 2px; }
+.testi-texto { font-size: 15px; color: var(--cafe-medio); line-height: 1.7; margin-bottom: 20px; font-style: italic; }
+.testi-autor { display: flex; align-items: center; gap: 12px; }
+.testi-avatar {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--verde);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--fuente-display);
+  font-size: 18px; color: var(--blanco); letter-spacing: 1px;
+}
+.testi-nombre { font-weight: 600; font-size: 14px; color: var(--cafe); }
+.testi-empresa { font-size: 13px; color: #999; }
+.testi-resultado {
+  display: inline-block;
+  background: rgba(11,110,79,0.1);
+  color: var(--verde);
+  border-radius: 50px;
+  padding: 3px 12px;
+  font-size: 12px; font-weight: 600;
+  margin-top: 8px;
+}
+
+/* ─── FAQ ─── */
+.faq-section { padding: 100px 24px; background: var(--gris-suave); }
+.faq-container { max-width: 700px; margin: 0 auto; }
+.faq-item {
+  background: var(--blanco);
+  border-radius: 12px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(11,110,79,0.08);
+}
+.faq-pregunta {
+  width: 100%; text-align: left;
+  padding: 20px 24px;
+  background: none; border: none;
+  font-family: var(--fuente-body);
+  font-size: 15px; font-weight: 500;
+  color: var(--cafe); cursor: pointer;
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 16px;
+}
+.faq-pregunta:hover { color: var(--verde); }
+.faq-arrow { font-size: 18px; color: var(--verde); transition: transform .2s; flex-shrink: 0; }
+.faq-item.open .faq-arrow { transform: rotate(45deg); }
+.faq-respuesta {
+  max-height: 0; overflow: hidden;
+  transition: max-height .3s ease;
+  padding: 0 24px;
+  font-size: 14px; color: #777; line-height: 1.7;
+}
+.faq-item.open .faq-respuesta { max-height: 300px; padding-bottom: 20px; }
+
+/* ─── CTA FINAL ─── */
+.cta-section {
+  padding: 120px 24px;
+  background: var(--cafe);
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+.cta-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(11,110,79,0.3) 0%, transparent 60%);
+}
+.cta-section h2 {
+  font-family: var(--fuente-display);
+  font-size: clamp(42px,6vw,80px);
+  color: var(--blanco);
+  letter-spacing: 1px;
+  line-height: 1;
+  margin-bottom: 20px;
+  position: relative; z-index: 1;
+}
+.cta-section h2 span { color: var(--verde-neon); }
+.cta-sub { color: rgba(255,255,255,.6); font-size: 17px; margin-bottom: 44px; position: relative; z-index: 1; }
+.cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; }
+.btn-wa {
+  background: #25D366;
+  color: var(--blanco);
+  border: none;
+  border-radius: 50px;
+  padding: 18px 40px;
+  font-family: var(--fuente-body);
+  font-size: 17px; font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex; align-items: center; gap: 10px;
+  transition: all .2s;
+}
+.btn-wa:hover { background: #1ebd5b; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,211,102,0.4); }
+.garantia-note {
+  position: relative; z-index: 1;
+  margin-top: 32px;
+  color: rgba(255,255,255,.4);
+  font-size: 13px;
+}
+
+/* ─── FOOTER ─── */
+footer {
+  background: #1A0F0A;
+  padding: 40px 24px 24px;
+  text-align: center;
+}
+.footer-logo {
+  font-family: var(--fuente-display);
+  font-size: 28px;
+  color: var(--verde-claro);
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+.footer-links { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-bottom: 24px; }
+.footer-links a { color: rgba(255,255,255,.4); font-size: 13px; text-decoration: none; transition: color .2s; }
+.footer-links a:hover { color: var(--verde-neon); }
+.footer-copy { color: rgba(255,255,255,.25); font-size: 12px; }
+
+/* ─── BOTÓN FLOTANTE WA ─── */
+.wa-float {
+  position: fixed; bottom: 28px; right: 28px; z-index: 200;
+  background: #25D366;
+  color: var(--blanco);
+  border-radius: 50px;
+  padding: 14px 22px;
+  text-decoration: none;
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--fuente-body);
+  font-size: 14px; font-weight: 600;
+  box-shadow: 0 8px 32px rgba(37,211,102,0.5);
+  animation: float-bounce 3s ease-in-out infinite;
+  transition: transform .2s;
+}
+.wa-float:hover { transform: scale(1.04); }
+.wa-float svg { width: 22px; height: 22px; fill: var(--blanco); }
+@keyframes float-bounce {
+  0%,100%{ box-shadow: 0 8px 32px rgba(37,211,102,0.5); }
+  50%{ box-shadow: 0 12px 40px rgba(37,211,102,0.7); transform: translateY(-2px); }
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width:900px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+  .calc-card { position: static; }
+}
+@media (max-width:600px) {
+  nav { padding: 0 16px; }
+  .hero { padding: 90px 16px 50px; }
+  .hero-btns { flex-direction: column; }
+  .btn-primary, .btn-outline { text-align: center; }
+  .hero-trust { flex-direction: column; gap: 12px; align-items: flex-start; }
+  .planes-tabs { gap: 6px; }
+  .plan-tab { padding: 8px 16px; font-size: 13px; }
+}
+
+/* Animaciones de entrada */
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(24px); }
+  to { opacity:1; transform:translateY(0); }
+}
+.hero-content > * { animation: fadeUp .6s ease both; }
+.hero-content > *:nth-child(1){ animation-delay:.1s }
+.hero-content > *:nth-child(2){ animation-delay:.2s }
+.hero-content > *:nth-child(3){ animation-delay:.3s }
+.hero-content > *:nth-child(4){ animation-delay:.4s }
+.hero-content > *:nth-child(5){ animation-delay:.5s }
+.calc-card { animation: fadeUp .7s .4s ease both; }
+</style>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1329251942145285');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1329251942145285&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">IMSS<span>EXPRESS</span></a>
+  <a class="nav-cta" href="#contacto">Consulta gratis →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid">
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="dot-pulse"></span>
+        Servicio activo · Registro en 72 horas
+      </div>
+      <h1>REGISTRA A TU<br><span>EQUIPO</span> EN EL IMSS<br>Y AHORRA HASTA<br><span>35%</span> EN IMPUESTOS</h1>
+      <p class="hero-sub">Servicio integral de afiliación: sin filas, sin trámites, sin riesgo de multas. Gestionamos todo por ti — de forma 100% legal y garantizada.</p>
+      <div class="hero-btns">
+        <a href="#calculadora" class="btn-primary">Calcula tu ahorro →</a>
+        <a href="#planes" class="btn-outline">Ver planes</a>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-item"><div class="trust-icon">✓</div><span>+300 empresas regularizadas</span></div>
+        <div class="trust-item"><div class="trust-icon">⚡</div><span>Alta en 72 horas</span></div>
+        <div class="trust-item"><div class="trust-icon">🔒</div><span>100% legal · IMSS oficial</span></div>
+      </div>
+    </div>
+
+    <!-- CALCULADORA -->
+    <div id="calculadora">
+      <div class="calc-card">
+        <div class="calc-title">Calcula tu ahorro</div>
+        <div class="calc-subtitle">Descubre cuánto puedes ahorrar al mes — gratis en 30 segundos</div>
+
+        <div class="calc-field">
+          <label class="calc-label">¿Cuántos empleados tienes?</label>
+          <input type="number" class="calc-input" id="empleados" value="10" min="1" max="200" placeholder="Ej: 15">
+        </div>
+
+        <div class="calc-field">
+          <label class="calc-label">Salario mensual promedio por empleado</label>
+          <div class="salario-display" id="salario-display">$8,000</div>
+          <input type="range" id="salario-range" min="4000" max="50000" step="500" value="8000"
+            oninput="actualizarCalculo()">
+        </div>
+
+        <div class="calc-field">
+          <label class="calc-label">¿Ya tienen IMSS?</label>
+          <select class="calc-input" id="tiene-imss" onchange="actualizarCalculo()">
+            <option value="no">No — ninguno registrado</option>
+            <option value="parcial">Parcial — solo algunos</option>
+            <option value="si">Sí — pero sin optimizar</option>
+          </select>
+        </div>
+
+        <div class="result-box" id="result-box">
+          <div class="result-label">Ahorro estimado mensual</div>
+          <div class="result-number" id="result-ahorro">$0</div>
+          <div class="result-periodo" id="result-anual">$0 al año</div>
+          <div class="result-desc" id="result-desc">Calcula tu ahorro moviendo los valores de arriba.</div>
+        </div>
+
+        <button class="calc-cta" onclick="window.open('https://wa.me/5631813444?text=Hola,%20quiero%20regularizar%20mi%20empresa%20en%20el%20IMSS','_blank')">
+          Quiero este ahorro — hablar ahora →
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ALERTA -->
+<section class="alerta-section">
+  <div class="alerta-eyebrow">⚠ Riesgo real</div>
+  <h2>CADA MES SIN<br>REGULARIZAR ES<br><em>DINERO PERDIDO</em></h2>
+  <p class="alerta-sub">El IMSS realiza verificaciones activas a PYMES. Las multas son acumulativas y retroactivas. No esperes a que llegue la carta.</p>
+  <div class="multas-grid">
+    <div class="multa-card">
+      <div class="multa-monto">$45K</div>
+      <div class="multa-desc">Multa mínima por empleado no registrado (IMSS 2026)</div>
+    </div>
+    <div class="multa-card">
+      <div class="multa-monto">$120K</div>
+      <div class="multa-desc">Multa máxima por trabajador + recargos acumulados</div>
+    </div>
+    <div class="multa-card">
+      <div class="multa-monto">35%</div>
+      <div class="multa-desc">Promedio de ahorro fiscal legal tras optimización</div>
+    </div>
+    <div class="multa-card">
+      <div class="multa-monto">72h</div>
+      <div class="multa-desc">Tiempo de registro con nuestro servicio. Sin filas.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section class="proceso-section">
+  <div class="section-header">
+    <div class="section-tag">Proceso simple</div>
+    <h2>CÓMO TE<br><span>REGULARIZAMOS</span></h2>
+  </div>
+  <div class="pasos-grid">
+    <div class="paso-card">
+      <div class="paso-num">01</div>
+      <div class="paso-icon">📋</div>
+      <h3>Diagnóstico gratuito</h3>
+      <p>Analizamos tu situación actual y calculamos el ahorro fiscal real. Sin costo, sin compromiso. En menos de 24 horas.</p>
+      <span class="tiempo-badge">Día 1 — Gratis</span>
+    </div>
+    <div class="paso-card">
+      <div class="paso-num">02</div>
+      <div class="paso-icon">📁</div>
+      <h3>Recopilación de datos</h3>
+      <p>Te enviamos una lista sencilla de documentos. Tú nos los mandas por WhatsApp. Nosotros hacemos el resto.</p>
+      <span class="tiempo-badge">Día 2</span>
+    </div>
+    <div class="paso-card">
+      <div class="paso-num">03</div>
+      <div class="paso-icon">⚡</div>
+      <h3>Alta en el IMSS</h3>
+      <p>Gestionamos el registro oficial ante el IMSS. Tus empleados quedan dados de alta con número de seguro social activo.</p>
+      <span class="tiempo-badge">Día 3 — 72 horas</span>
+    </div>
+    <div class="paso-card">
+      <div class="paso-num">04</div>
+      <div class="paso-icon">💰</div>
+      <h3>Optimización fiscal</h3>
+      <p>Estructuramos la nómina de forma legal para reducir al máximo las cuotas patronales IMSS, INFONAVIT y SAT.</p>
+      <span class="tiempo-badge">Día 4-5</span>
+    </div>
+  </div>
+</section>
+
+<!-- PLANES -->
+<section class="planes-section" id="planes">
+  <div class="section-header">
+    <div class="section-tag">Precios reales</div>
+    <h2>ELIGE TU<br><span>PLAN</span></h2>
+  </div>
+
+  <div class="planes-tabs">
+    <button class="plan-tab active" onclick="mostrarPlan('empresarial')">Empresarial</button>
+    <button class="plan-tab" onclick="mostrarPlan('personal')">Personal / Freelancer</button>
+  </div>
+
+  <!-- PLANES EMPRESARIALES -->
+  <div id="plan-empresarial" class="plan-content active">
+    <div class="plan-card">
+      <div class="plan-nombre">Starter</div>
+      <div class="plan-personas">1 a 9 personas</div>
+      <div class="plan-precio">$2,390</div>
+      <div class="plan-per">por persona / mes</div>
+      <hr class="plan-divider">
+      <div class="plan-feat"><span class="check">✓</span> IMSS Empresarial oficial</div>
+      <div class="plan-feat"><span class="check">✓</span> Aportaciones AFORE al 100%</div>
+      <div class="plan-feat"><span class="check">✓</span> Aportaciones INFONAVIT al 100%</div>
+      <div class="plan-feat"><span class="check">✓</span> Seguro GMm Premium incluido</div>
+      <div class="plan-feat"><span class="check">✓</span> Gestión completa de trámites</div>
+      <button class="plan-cta-btn" onclick="window.open('https://wa.me/5631813444?text=Quiero%20el%20plan%20Starter%20para%201-9%20empleados','_blank')">Empezar ahora</button>
+    </div>
+
+    <div class="plan-card destacado">
+      <div class="plan-badge-top">⭐ Más popular</div>
+      <div class="plan-nombre">Business</div>
+      <div class="plan-personas">10 a 29 personas</div>
+      <div class="plan-precio">$2,300</div>
+      <div class="plan-per">por persona / mes (10-19) · $2,180 (20-29)</div>
+      <hr class="plan-divider">
+      <div class="plan-feat"><span class="check">✓</span> Todo del plan Starter</div>
+      <div class="plan-feat"><span class="check">✓</span> Descuento por volumen activo</div>
+      <div class="plan-feat"><span class="check">✓</span> Asesor dedicado de cuenta</div>
+      <div class="plan-feat"><span class="check">✓</span> Reporte mensual de cuotas</div>
+      <div class="plan-feat"><span class="check">✓</span> Seguro GMm Premium incluido</div>
+      <button class="plan-cta-btn" onclick="window.open('https://wa.me/5631813444?text=Quiero%20el%20plan%20Business%20para%2010-29%20empleados','_blank')">Empezar ahora</button>
+    </div>
+
+    <div class="plan-card">
+      <div class="plan-nombre">Enterprise</div>
+      <div class="plan-personas">30 a 100 personas</div>
+      <div class="plan-precio">$2,115</div>
+      <div class="plan-per">por persona / mes — desde 30 empleados · hasta $1,810 (70-100)</div>
+      <hr class="plan-divider">
+      <div class="plan-feat"><span class="check">✓</span> Todo del plan Business</div>
+      <div class="plan-feat"><span class="check">✓</span> Precio escalonado por volumen</div>
+      <div class="plan-feat"><span class="check">✓</span> Gerente de cuenta ejecutivo</div>
+      <div class="plan-feat"><span class="check">✓</span> Auditoría preventiva incluida</div>
+      <div class="plan-feat"><span class="check">✓</span> Onboarding prioritario</div>
+      <button class="plan-cta-btn" onclick="window.open('https://wa.me/5631813444?text=Quiero%20cotizar%20plan%20Enterprise%20para%20mi%20empresa','_blank')">Solicitar cotización</button>
+    </div>
+  </div>
+
+  <!-- PLAN PERSONAL -->
+  <div id="plan-personal" class="plan-content">
+    <div class="personal-card">
+      <div class="personal-icon">🥉</div>
+      <div class="personal-nombre">Bronce</div>
+      <div class="personal-precio">$1,660</div>
+      <div class="personal-per">por mes</div>
+      <div class="plan-divider"></div>
+      <div class="personal-feat">
+        <div class="plan-feat"><span class="check">✓</span> Alta en IMSS</div>
+        <div class="plan-feat"><span class="check">✓</span> Garantía de servicio</div>
+      </div>
+      <button class="plan-cta-btn" onclick="window.open('https://wa.me/5631813444?text=Quiero%20el%20plan%20Bronce%20personal','_blank')">Empezar</button>
+    </div>
+    <div class="personal-card destacado">
+      <div class="plan-badge-top">⭐ Recomendado</div>
+      <div class="personal-icon">🥈</div>
+      <div class="personal-nombre">Plata</div>
+      <div class="personal-precio">$1,850</div>
+      <div class="personal-per">por mes</div>
+      <div class="plan-divider"></div>
+      <div class="personal-feat">
+        <div class="plan-feat"><span class="check">✓</span> Alta en IMSS</div>
+        <div class="plan-feat"><span class="check">✓</span> Garantía de servicio</div>
+        <div class="plan-feat"><span class="check">✓</span> Seguro GMm Básico</div>
+        <div class="plan-feat"><span class="check">✓</span> Ayuda 24 horas</div>
+      </div>
+      <button class="plan-cta-btn" onclick="window.open('https://wa.me/5631813444?text=Quiero%20el%20plan%20Plata%20personal','_blank')">Empezar</button>
+    </div>
+    <div class="personal-card">
+      <div class="personal-icon">🥇</div>
+      <div class="personal-nombre">Oro</div>
+      <div class="personal-precio">$2,000</div>
+      <div class="personal-per">por mes</div>
+      <div class="plan-divider"></div>
+      <div class="personal-feat">
+        <div class="plan-feat"><span class="check">✓</span> Alta en IMSS</div>
+        <div class="plan-feat"><span class="check">✓</span> Garantía de servicio</div>
+        <div class="plan-feat"><span class="check">✓</span> Seguro GMm Premium</div>
+        <div class="plan-feat"><span class="check">✓</span> Ayuda 24 horas</div>
+      </div>
+      <button class="plan-cta-btn" onclick="window.open('https://wa.me/5631813444?text=Quiero%20el%20plan%20Oro%20personal','_blank')">Empezar</button>
+    </div>
+    <p class="plan-nota" style="grid-column:1/-1;">Los planes se cobran únicamente cuando el servicio está activo y dado de alta.</p>
+  </div>
+</section>
+
+<!-- BENEFICIOS GMm -->
+<section class="beneficios-section">
+  <div class="section-header">
+    <div class="section-tag">Plan GMm Premium incluido</div>
+    <h2>TODO LO QUE<br>OBTIENES ADEMÁS</h2>
+  </div>
+  <div class="beneficios-grid">
+    <div class="bene-card">
+      <div class="bene-icon">🛡️</div>
+      <div class="bene-titulo">Seguro de vida</div>
+      <div class="bene-monto">$500,000</div>
+      <div class="bene-desc">Cobertura principal incluida en tu plan</div>
+    </div>
+    <div class="bene-card">
+      <div class="bene-icon">🚑</div>
+      <div class="bene-titulo">Muerte por accidente</div>
+      <div class="bene-monto">$200,000</div>
+      <div class="bene-desc">Cobertura adicional por accidente</div>
+    </div>
+    <div class="bene-card">
+      <div class="bene-icon">🏥</div>
+      <div class="bene-titulo">Reembolso accidente</div>
+      <div class="bene-monto">$15,000</div>
+      <div class="bene-desc">Hasta $15,000 por evento de accidente</div>
+    </div>
+    <div class="bene-card">
+      <div class="bene-icon">⚰️</div>
+      <div class="bene-titulo">Gastos funerarios</div>
+      <div class="bene-monto">$30,000</div>
+      <div class="bene-desc">Cobertura de gastos funerarios</div>
+    </div>
+    <div class="bene-card">
+      <div class="bene-icon">🦷</div>
+      <div class="bene-titulo">Limpiezas dentales</div>
+      <div class="bene-monto">2 al año</div>
+      <div class="bene-desc">Sin costo adicional, incluidas en tu plan</div>
+    </div>
+    <div class="bene-card">
+      <div class="bene-icon">🩺</div>
+      <div class="bene-titulo">Check Up anual</div>
+      <div class="bene-monto">6 elementos</div>
+      <div class="bene-desc">Revisión completa de salud una vez al año</div>
+    </div>
+    <div class="bene-card">
+      <div class="bene-icon">💻</div>
+      <div class="bene-titulo">Telemedicina</div>
+      <div class="bene-monto">Ilimitada</div>
+      <div class="bene-desc">Consultas médicas online cuando las necesites</div>
+    </div>
+    <div class="bene-card">
+      <div class="bene-icon">🧠</div>
+      <div class="bene-titulo">Terapia psicológica</div>
+      <div class="bene-monto">Incluida</div>
+      <div class="bene-desc">Apoyo emocional y psicológico para ti y tu equipo</div>
+    </div>
+    <div class="bene-card">
+      <div class="bene-icon">🥗</div>
+      <div class="bene-titulo">Nutrición</div>
+      <div class="bene-monto">Incluida</div>
+      <div class="bene-desc">Módulo de nutrición y bienestar</div>
+    </div>
+    <div class="bene-card">
+      <div class="bene-icon">🏠</div>
+      <div class="bene-titulo">Asistencia hogar</div>
+      <div class="bene-monto">1 por año</div>
+      <div class="bene-desc">Plomería, electricidad y más</div>
+    </div>
+    <div class="bene-card">
+      <div class="bene-icon">🚗</div>
+      <div class="bene-titulo">Auxilio vial + grúa</div>
+      <div class="bene-monto">1 por año</div>
+      <div class="bene-desc">Asistencia en carretera cuando más lo necesitas</div>
+    </div>
+    <div class="bene-card">
+      <div class="bene-icon">⚖️</div>
+      <div class="bene-titulo">Asesoría jurídica</div>
+      <div class="bene-monto">Ilimitada</div>
+      <div class="bene-desc">Asistencia legal familiar telefónica sin límite</div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section class="testimonios-section">
+  <div class="section-header">
+    <div class="section-tag">Casos reales</div>
+    <h2>LO QUE DICEN<br><span>NUESTROS CLIENTES</span></h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="estrellas">★★★★★</div>
+      <p class="testi-texto">"Tenía 17 empleados sin IMSS y vivía con miedo a una auditoría. En 4 días me regularizaron y redujeron mis cuotas patronales un 31%. Ojalá lo hubiera hecho antes."</p>
+      <div class="testi-autor">
+        <div class="testi-avatar">RG</div>
+        <div>
+          <div class="testi-nombre">Roberto González</div>
+          <div class="testi-empresa">Ferretería Los Portales · CDMX</div>
+          <div class="testi-resultado">✓ Ahorro: $12,400/mes</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="estrellas">★★★★★</div>
+      <p class="testi-texto">"Soy arquitecta independiente y no sabía ni cómo empezar. Me explicaron todo, eligieron el plan correcto para mi ingreso y ya tengo IMSS activo. Súper rápido y claro."</p>
+      <div class="testi-autor">
+        <div class="testi-avatar">MP</div>
+        <div>
+          <div class="testi-nombre">Marcela Pacheco</div>
+          <div class="testi-empresa">Freelancer · Guadalajara</div>
+          <div class="testi-resultado">✓ Plan Plata activo</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="estrellas">★★★★★</div>
+      <p class="testi-texto">"Tenemos una clínica dental con 12 colaboradores. El servicio fue impecable — diagnóstico gratuito, trámite completo y ahora pagamos un 28% menos en IMSS. Muy recomendados."</p>
+      <div class="testi-autor">
+        <div class="testi-avatar">DL</div>
+        <div>
+          <div class="testi-nombre">Dr. Daniel López</div>
+          <div class="testi-empresa">Clínica Dental Sonrisas · Monterrey</div>
+          <div class="testi-resultado">✓ 12 empleados regularizados</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="section-header">
+    <div class="section-tag">Preguntas frecuentes</div>
+    <h2>TODO LO QUE<br><span>NECESITAS SABER</span></h2>
+  </div>
+  <div class="faq-container">
+    <div class="faq-item">
+      <button class="faq-pregunta" onclick="toggleFaq(this)">¿Cuánto tiempo tarda el registro en el IMSS? <span class="faq-arrow">+</span></button>
+      <div class="faq-respuesta">El proceso completo toma entre 48 y 72 horas hábiles desde que recibimos todos los documentos necesarios. En casos simples, lo hemos completado en 24 horas. Una vez dado de alta, el número de seguridad social queda activo de forma inmediata.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-pregunta" onclick="toggleFaq(this)">¿Qué documentos necesito para afiliar a mis empleados? <span class="faq-arrow">+</span></button>
+      <div class="faq-respuesta">Básicamente: RFC del patrón o empresa, CURP y comprobante de domicilio de cada trabajador, y contrato de trabajo. Nosotros te enviamos una lista exacta y personalizada según tu caso. Todo se puede enviar por WhatsApp o correo.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-pregunta" onclick="toggleFaq(this)">¿Cómo logran reducir el pago de IMSS legalmente? <span class="faq-arrow">+</span></button>
+      <div class="faq-respuesta">Mediante la correcta integración del salario base de cotización (SBC). Muchos patrones registran a sus empleados con el salario completo cuando legalmente pueden estructurarlo con prestaciones deducibles que reducen la base de cotización. Todo dentro del marco legal del IMSS y el SAT.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-pregunta" onclick="toggleFaq(this)">¿Y si tengo empleados con salarios irregulares o por proyectos? <span class="faq-arrow">+</span></button>
+      <div class="faq-respuesta">También los cubrimos. Existe la modalidad de cotización eventual o por temporada, perfecta para trabajadores con ingresos variables. Lo analizamos caso por caso en el diagnóstico gratuito.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-pregunta" onclick="toggleFaq(this)">¿Pueden ayudar a un freelancer que trabaja solo? <span class="faq-arrow">+</span></button>
+      <div class="faq-respuesta">Sí. Los trabajadores independientes pueden afiliarse al IMSS de forma voluntaria como "trabajadores independientes". Nosotros gestionamos todo el proceso y encontramos el plan más conveniente para tu nivel de ingresos, desde $1,660/mes.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-pregunta" onclick="toggleFaq(this)">¿Cuándo se cobra el servicio? <span class="faq-arrow">+</span></button>
+      <div class="faq-respuesta">Solo cobras cuando el servicio está activo y el IMSS está dado de alta. No hay pagos anticipados. El diagnóstico inicial es completamente gratuito y sin compromiso.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-section" id="contacto">
+  <h2>EMPIEZA HOY,<br>AHORRA DESDE<br><span>EL PRIMER MES</span></h2>
+  <p class="cta-sub">Diagnóstico gratuito · Sin compromiso · Resultados en 72 horas</p>
+  <div class="cta-btns">
+    <a class="btn-wa" href="https://wa.me/5631813444?text=Hola,%20quiero%20mi%20diagn%C3%B3stico%20gratuito%20de%20afiliaci%C3%B3n%20IMSS" target="_blank">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Iniciar diagnóstico gratis
+    </a>
+  </div>
+  <p class="garantia-note">El servicio solo se cobra cuando el IMSS está activo · Sin pagos anticipados</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">IMSEXPRESS</div>
+  <div class="footer-links">
+    <a href="#calculadora">Calculadora</a>
+    <a href="#planes">Planes</a>
+    <a href="#contacto">Contacto</a>
+    <a href="#">Aviso de privacidad</a>
+    <a href="#">Términos de servicio</a>
+  </div>
+  <p class="footer-copy">© 2026 · Servicio de gestión de afiliación IMSS · Ciudad de México</p>
+</footer>
+
+<!-- BOTÓN FLOTANTE WA -->
+<a class="wa-float" href="https://wa.me/5631813444?text=Hola,%20me%20interesa%20afiliar%20a%20mis%20empleados%20al%20IMSS" target="_blank">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  Hablar ahora
+</a>
+
+<script>
+/* ─── CALCULADORA ─── */
+const rangeSalario = document.getElementById('salario-range');
+const displaySalario = document.getElementById('salario-display');
+
+function fmt(n){ return '$' + Math.round(n).toLocaleString('es-MX'); }
+
+function actualizarSlider(){
+  const min = +rangeSalario.min, max = +rangeSalario.max, val = +rangeSalario.value;
+  const pct = ((val-min)/(max-min)*100).toFixed(1) + '%';
+  rangeSalario.style.setProperty('--pct', pct);
+}
+
+function actualizarCalculo(){
+  const empleados = Math.max(1, parseInt(document.getElementById('empleados').value) || 1);
+  const salario = parseInt(rangeSalario.value);
+  const tieneImss = document.getElementById('tiene-imss').value;
+  displaySalario.textContent = fmt(salario);
+  actualizarSlider();
+
+  // Cuota patronal estándar sin optimizar: ~27% del SBC
+  // Con optimización: reducción estimada del 20-35% de la carga patronal
+  const cuotaActual = salario * 0.27 * empleados;
+  let porcentajeAhorro = 0;
+  if (tieneImss === 'no') porcentajeAhorro = 0.31;
+  else if (tieneImss === 'parcial') porcentajeAhorro = 0.22;
+  else porcentajeAhorro = 0.14;
+
+  const ahorroMensual = cuotaActual * porcentajeAhorro;
+  const ahorroAnual = ahorroMensual * 12;
+
+  document.getElementById('result-ahorro').textContent = fmt(ahorroMensual);
+  document.getElementById('result-anual').textContent = fmt(ahorroAnual) + ' al año';
+
+  let desc = '';
+  if (tieneImss === 'no') {
+    desc = `Con ${empleados} empleado${empleados>1?'s':''} sin IMSS, optimizamos tu estructura de nómina y cotización. Estimamos un ahorro de ~31% en cuotas patronales desde el primer mes.`;
+  } else if (tieneImss === 'parcial') {
+    desc = `Regularizando al equipo completo y optimizando el SBC, estimamos reducir tu carga patronal un 22%. Más ahorro fiscal, menos riesgo legal.`;
+  } else {
+    desc = `Aun teniendo IMSS activo, la mayoría de empresas pueden reducir su carga un 14% adicional reoptimizando la estructura de cotización. Diagnóstico gratis.`;
+  }
+  document.getElementById('result-desc').textContent = desc;
+}
+
+rangeSalario.addEventListener('input', actualizarCalculo);
+document.getElementById('empleados').addEventListener('input', actualizarCalculo);
+actualizarCalculo();
+
+/* ─── PLANES TABS ─── */
+function mostrarPlan(tipo){
+  document.querySelectorAll('.plan-tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.plan-content').forEach(p=>p.classList.remove('active'));
+  event.target.classList.add('active');
+  document.getElementById('plan-' + tipo).classList.add('active');
+}
+
+/* ─── FAQ ─── */
+function toggleFaq(btn){
+  const item = btn.closest('.faq-item');
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!wasOpen) item.classList.add('open');
+}
+
+/* ─── META PIXEL PLACEHOLDER ─── */
+// Reemplaza TU_PIXEL_ID con tu ID real de Meta Pixel
+// !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){
+//   n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+//   if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+//   n.queue=[];t=b.createElement(e);t.async=!0;
+//   t.src=v;s=b.getElementsByTagName(e)[0];
+//   s.parentNode.insertBefore(t,s)}(window,document,'script',
+//   'https://connect.facebook.net/en_US/fbevents.js');
+// fbq('init', 'TU_PIXEL_ID');
+// fbq('track', 'PageView');
+
+function trackLead(){
+  // Track Lead event in Meta Pixel
+  if(typeof fbq !== 'undefined') {
+    fbq('track', 'Lead', {
+      content_name: 'Diagnóstico IMSS Gratuito',
+      content_type: 'lead_magnet',
+      currency: 'MXN',
+      value: '0.00'
+    });
+  }
+  console.log('[Meta Pixel] Lead tracked');
+}
+document.querySelectorAll('.calc-cta, .plan-cta-btn, .btn-wa, .wa-float').forEach(btn=>{
+  btn.addEventListener('click', trackLead);
+});
+</script>
+
+</body>
+</html>
