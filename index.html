@@ -10,6 +10,8 @@
 
 <!-- Meta Pixel Code -->
 <script>
+const pageViewEventId = 'pageview_' + Date.now() + '_' + Math.random().toString(36).slice(2,8);
+
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -19,7 +21,7 @@ t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '1329251942145285');
-fbq('track', 'PageView');
+fbq('track', 'PageView', {eventID: pageViewEventId});
 </script>
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=1329251942145285&ev=PageView&noscript=1"
@@ -1239,7 +1241,11 @@ function toggleFaq(btn){
 
 /* ─── META PIXEL PLACEHOLDER ─── */
 function trackLead(){
-  console.log('[Meta Pixel] Lead tracked');
+  const leadEventId = 'lead_' + Date.now() + '_' + Math.random().toString(36).slice(2,8);
+  fbq('track', 'Lead', {eventID: leadEventId});
+  console.log('[Meta Pixel] Lead tracked', leadEventId);
+  // Si también envías este evento por Conversions API desde el servidor,
+  // usa el mismo event_id y user_data hasheado para deduplicación.
 }
 document.querySelectorAll('.calc-cta, .plan-cta-btn, .btn-wa, .wa-float').forEach(btn=>{
   btn.addEventListener('click', trackLead);
